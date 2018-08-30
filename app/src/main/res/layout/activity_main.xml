@@ -98,6 +98,7 @@
             android:text="自定义设置ViewPager的滑动动画" />
 
         <LinearLayout
+            android:id="@+id/ll_ad_count_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/button5"
@@ -123,6 +124,48 @@
                 android:layout_height="150dp"
                 android:layout_marginTop="50dp" />
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_alert_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_ad_count_view"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <Button android:text="hey,alert !!!click here~~~" android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_height="50dp"
+                android:onClick="alertShow1"/>
+            <Button android:text="hey,alert !!!click here~~~" android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_height="50dp"
+                android:onClick="alertShow2"/>
+            <Button android:text="hey,alert !!!click here~~~" android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_height="50dp"
+                android:onClick="alertShow3"/>
+            <Button android:text="hey,actionsheet !!!click here~~~" android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_height="50dp"
+                android:onClick="alertShow4"/>
+            <Button android:text="hey,actionsheet !!!click here~~~" android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_height="50dp"
+                android:onClick="alertShow5"/>
+            <Button android:text="hey,actionsheet !!!click here~~~" android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_height="50dp"
+                android:onClick="alertShow6"/>
+            <Button android:text="窗口拓展点这里" android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_height="50dp"
+                android:onClick="alertShowExt"/>
+        </LinearLayout>
+
+
 
 
     </RelativeLayout>
