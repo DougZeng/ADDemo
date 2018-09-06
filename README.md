@@ -455,3 +455,54 @@ new AlertView("标题", "内容", null, new String[]{"确定"}, null, this,
 ```
 另外还支持窗口界面拓展，更多操作请下载Demo看。
 
+
+####ConvenientBanner
+通用的广告栏控件，让你轻松实现广告头效果。支持无限循环，可以设置自动翻页和时间(而且非常智能，手指触碰则暂停翻页，离开自动开始翻页。你也可以设置在界面onPause的时候不进行自动翻页，onResume之后继续自动翻页)，并且提供多种翻页特效。 对比其他广告栏控件，大多都需要对源码进行改动才能加载网络图片，或者帮你集成不是你所需要的图片缓存库。而这个库能让有代码洁癖的你欢喜，不需要对库源码进行修改你就可以使用任何你喜欢的网络图片库进行配合。
+
+####Config in xml
+<com.doug.adlib.convenientbanner.ConvenientBanner
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/convenientBanner"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:canLoop="true" //控制循环与否
+/>
+
+####config in java code
+```
+//自定义你的Holder，实现更多复杂的界面，不一定是图片翻页，其他任何控件翻页亦可。
+convenientBanner.setPages(
+                new CBViewHolderCreator() {
+                    @Override
+                    public LocalImageHolderView createHolder(View itemView) {
+                        return new LocalImageHolderView(itemView);
+                    }
+
+                    @Override
+                    public int getLayoutId() {
+                        return R.layout.item_localimage;
+                    }
+                }, localImages)
+                //设置两个点图片作为翻页指示器，不设置则没有指示器，可以根据自己需求自行配合自己的指示器,不需要圆点指示器可用不设
+//                .setPageIndicator(new int[]{R.drawable.ic_page_indicator, R.drawable.ic_page_indicator_focused})
+                .setOnItemClickListener(this);
+                //设置指示器的方向
+//                .setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.ALIGN_PARENT_RIGHT)
+//                .setOnPageChangeListener(this)//监听翻页事件
+                ;
+
+public class LocalImageHolderView implements Holder<Integer>{
+    private ImageView imageView;
+    @Override
+    public View createView(Context context) {
+        imageView = new ImageView(context);
+        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        return imageView;
+    }
+
+    @Override
+    public void UpdateUI(Context context, final int position, Integer data) {
+        imageView.setImageResource(data);
+    }
+}
+```

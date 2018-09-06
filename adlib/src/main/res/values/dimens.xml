@@ -29,4 +29,6 @@
     <!--圆角-->
     <dimen name="radius_alertview">15px</dimen>
 
+    <dimen name="convenientbanner_margin">10dp</dimen>
+
 </resources>

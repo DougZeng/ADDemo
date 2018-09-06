@@ -10,7 +10,7 @@ import android.util.DisplayMetrics;
 import com.doug.adlib.util.DisplayUtil;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
-public class BaseApp extends Application {
+public abstract class BaseApp extends Application {
 
     @Override
     public void onCreate() {
